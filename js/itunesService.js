@@ -15,7 +15,7 @@ app.service('itunesService', function($http, $q){
         $http({method: 'JSONP',
         url: 'https://itunes.apple.com/search?term=' + aName + '&callback=JSON_CALLBACK' 
         }).then(function(response) {
-            response = response.data;
+            response = response.data.results;
             deferred.resolve(response);
         });
         return deferred.promise;
